@@ -32,6 +32,8 @@ public class Main5Activity extends AppCompatActivity {
         Button btnDot = (Button)findViewById(R.id.btnDot);
         Button btn0 = (Button)findViewById(R.id.btn0);
         Button btnResult = (Button)findViewById(R.id.btnResult);
+        Button btnEC = (Button)findViewById(R.id.btnEC);
+        Button btnBack = (Button)findViewById(R.id.btnBack);
 
         txres = (EditText)findViewById(R.id.txResult);
 
@@ -127,31 +129,31 @@ public class Main5Activity extends AppCompatActivity {
             }
         });
         btnSum.setOnClickListener(view->{
-            A = Float.parseFloat(txres.getText()+"");
+            if(A==0) A = Float.parseFloat(txres.getText()+"");
             txres.setText("+");
             ok = 1;
             operator =1;
         });
         btnSub.setOnClickListener(view->{
-            if(TextUtils.isEmpty(txres.getText().toString())){
+            if(TextUtils.isEmpty(txres.getText().toString()) && A==0){
                 txres.setText("-");
                 ok=0;
             }
             else {
-                A = Float.parseFloat(txres.getText()+"");
+                if(A==0) A = Float.parseFloat(txres.getText()+"");
                 ok = 1;
                 txres.setText("-");
                 operator =2;
             }
         });
         btnMul.setOnClickListener(view->{
-            A = Float.parseFloat(txres.getText()+"");
+            if(A==0) A = Float.parseFloat(txres.getText()+"");
             txres.setText("*");
             ok = 1;
             operator =3;
         });
         btnDiv.setOnClickListener(view->{
-            A = Float.parseFloat(txres.getText()+"");
+            if(A==0) A = Float.parseFloat(txres.getText()+"");
             txres.setText("/");
             ok = 1;
             operator =4;
@@ -162,7 +164,19 @@ public class Main5Activity extends AppCompatActivity {
             else if(operator ==2) txres.setText((A-B)+"");
             else if(operator ==3) txres.setText((A*B)+"");
             else if(operator ==4) txres.setText((A/B)+"");
+            A=B=0;
             ok = 1;
+        });
+        btnEC.setOnClickListener(view->{
+            txres.setText("");
+            ok=operator=0;
+            A=B=0;
+        });
+        btnBack.setOnClickListener(view->{
+            if(!TextUtils.isEmpty(txres.getText().toString())){
+                String temp = txres.getText().toString();
+                txres.setText(temp.substring(0,temp.length()-1));
+            }
         });
     }
     public void settext(String input){
