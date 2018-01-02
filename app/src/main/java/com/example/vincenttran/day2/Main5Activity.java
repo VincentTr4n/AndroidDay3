@@ -9,7 +9,7 @@ public class Main5Activity extends AppCompatActivity {
 
     EditText txres;
     float A=0,B=0;
-    int operator = 0,op = 0;
+    int ok = 0, operator = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,124 +35,124 @@ public class Main5Activity extends AppCompatActivity {
         txres = (EditText)findViewById(R.id.txResult);
 
         btn0.setOnClickListener(view->{
-            if(operator==0) settext("0");
+            if(ok ==0) settext("0");
             else {
                 txres.setText("");
-                operator=0;
+                ok =0;
                 settext("0");
             }
         });
         btn1.setOnClickListener(view->{
-            if(operator==0) settext("1");
+            if(ok ==0) settext("1");
             else {
                 txres.setText("");
-                operator=0;
+                ok =0;
                 settext("1");
             }
         });
         btn2.setOnClickListener(view->{
-            if(operator==0) settext("2");
+            if(ok ==0) settext("2");
             else {
                 txres.setText("");
-                operator=0;
+                ok =0;
                 settext("2");
             }
         });
         btn3.setOnClickListener(view->{
-            if(operator==0) settext("3");
+            if(ok ==0) settext("3");
             else {
                 txres.setText("");
-                operator=0;
+                ok =0;
                 settext("3");
             }
         });
         btn4.setOnClickListener(view->{
-            if(operator==0) settext("4");
+            if(ok ==0) settext("4");
             else {
                 txres.setText("");
-                operator=0;
+                ok =0;
                 settext("4");
             }
         });
         btn5.setOnClickListener(view->{
-            if(operator==0) settext("5");
+            if(ok ==0) settext("5");
             else {
                 txres.setText("");
-                operator=0;
+                ok =0;
                 settext("5");
             }
         });
         btn6.setOnClickListener(view->{
-            if(operator==0) settext("6");
+            if(ok ==0) settext("6");
             else {
                 txres.setText("");
-                operator=0;
+                ok =0;
                 settext("6");
             }
         });
         btn7.setOnClickListener(view->{
-            if(operator==0) settext("7");
+            if(ok ==0) settext("7");
             else {
                 txres.setText("");
-                operator=0;
+                ok =0;
                 settext("7");
             }
         });
         btn8.setOnClickListener(view->{
-            if(operator==0) settext("8");
+            if(ok ==0) settext("8");
             else {
                 txres.setText("");
-                operator=0;
+                ok =0;
                 settext("8");
             }
         });
         btn9.setOnClickListener(view->{
-            if(operator==0) settext("9");
+            if(ok ==0) settext("9");
             else {
                 txres.setText("");
-                operator=0;
+                ok =0;
                 settext("9");
             }
         });
         btnDot.setOnClickListener(view->{
-            if(operator==0) settext(".");
+            if(ok ==0) settext(".");
             else {
                 txres.setText("");
-                operator=0;
+                ok =0;
                 settext(".");
             }
         });
         btnSum.setOnClickListener(view->{
             A = Float.parseFloat(txres.getText()+"");
             txres.setText("+");
-            operator = 1;
-            op=1;
+            ok = 1;
+            operator =1;
         });
         btnSub.setOnClickListener(view->{
             A = Float.parseFloat(txres.getText()+"");
             txres.setText("-");
-            operator = 2;
-            op=2;
+            ok = 1;
+            operator =2;
         });
         btnMul.setOnClickListener(view->{
             A = Float.parseFloat(txres.getText()+"");
             txres.setText("*");
-            operator = 3;
-            op=3;
+            ok = 1;
+            operator =3;
         });
         btnDiv.setOnClickListener(view->{
             A = Float.parseFloat(txres.getText()+"");
             txres.setText("/");
-            operator = 4;
-            op=4;
+            ok = 1;
+            operator =4;
         });
         btnResult.setOnClickListener(view->{
             B = Float.parseFloat(txres.getText()+"");
-            if(op==1) txres.setText((A+B)+"");
-            else if(op==2) txres.setText((A-B)+"");
-            else if(op==3) txres.setText((A*B)+"");
-            else if(op==4) txres.setText((A/B)+"");
-            operator = 5;
+            if(operator ==1) txres.setText((A+B)+"");
+            else if(operator ==2) txres.setText((A-B)+"");
+            else if(operator ==3) txres.setText((A*B)+"");
+            else if(operator ==4) txres.setText((A/B)+"");
+            ok = 1;
         });
     }
     public void settext(String input){
