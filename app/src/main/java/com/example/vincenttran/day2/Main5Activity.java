@@ -2,6 +2,7 @@ package com.example.vincenttran.day2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -115,7 +116,10 @@ public class Main5Activity extends AppCompatActivity {
             }
         });
         btnDot.setOnClickListener(view->{
-            if(ok ==0) settext(".");
+            if(ok ==0){
+                if(!txres.getText().toString().contains("."))
+                    settext(".");
+            }
             else {
                 txres.setText("");
                 ok =0;
@@ -129,10 +133,16 @@ public class Main5Activity extends AppCompatActivity {
             operator =1;
         });
         btnSub.setOnClickListener(view->{
-            A = Float.parseFloat(txres.getText()+"");
-            txres.setText("-");
-            ok = 1;
-            operator =2;
+            if(TextUtils.isEmpty(txres.getText().toString())){
+                txres.setText("-");
+                ok=0;
+            }
+            else {
+                A = Float.parseFloat(txres.getText()+"");
+                ok = 1;
+                txres.setText("-");
+                operator =2;
+            }
         });
         btnMul.setOnClickListener(view->{
             A = Float.parseFloat(txres.getText()+"");
